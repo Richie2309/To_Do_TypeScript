@@ -42,15 +42,18 @@ export default class FullList implements List {
     }
 
     addItem(itemObj: ListItem): void {
+        if (this._list.some(item => item.item === itemObj.item)) {
+            alert("Item already exists!");
+            return;
+        }
+
         this._list.push(itemObj)
         this.save()
     }
 
     removeItem(id: string): void {
-        this._list = this._list.filter(item => {
-            item.id !== id
-        })
-        this.save()
+        this._list = this._list.filter(item => item.id !== id);
+        this.save();
     }
 
 

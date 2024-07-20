@@ -3,7 +3,7 @@ import FullList from './model/FullList'
 import ListItem from './model/ListItems'
 import ListTemplates from './template/ListTemplates'
 
-const intApp = (): void => {
+const initApp = (): void => {
     const fullList = FullList.instace
     const template = ListTemplates.instance
 
@@ -24,6 +24,7 @@ const intApp = (): void => {
 
             fullList.addItem(newItem)
             template.render(fullList)
+            input.value = ''
     })
 
     const clearItems = document.getElementById('clearItemsButton') as HTMLButtonElement
@@ -37,4 +38,4 @@ const intApp = (): void => {
     template.render(fullList)
 }
 
-document.addEventListener('DOMContentLoaded', intApp)
+document.addEventListener('DOMContentLoaded', initApp)
